@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.sidebar {
+    flex: 3;
+    margin: 20px;
+    padding-bottom: 30px;
+    background-color: #fdfbfb; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    /* alignItems is for centering left and right */
+    /* justfiy content is for adjusting on x/y axis */
+
+    
+}
+
+.sidebarItem > img {
+    width: 250px;
+}
+
+.sidebarItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.sidebarTitle {
+    margin: 10px;
+    padding: 5px;
+    width: 80%; 
+    border-top: 1px solid #a7a4a4;
+    border-bottom : 1px solid #a7a4a4;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.sidebarItem > img {
+    margin-top: 13px;
+}
+
+.sidebarItem > p {
+    padding: 30px;
+}
+
+.sidebarList {
+    list-style: none;
+
+       
+
+}
+
+.sidebarListItem {
+    display: inline-block;
+    width: 50%;
+    margin-top: 15px;
+    cursor: pointer;
+    /* flex-direction: column; */
+}
+
+.sidebarSocial {
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.sidebarItem {
+    align-items: center;
+}
+
+.sidebarIcon {
+    margin-right: 10px;
+}

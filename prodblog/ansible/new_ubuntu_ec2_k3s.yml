@@ -1,0 +1,32 @@
+- hosts: localhost #no communication with remote system for this playbook 
+  tasks:  
+
+  - name: Create Ubuntu EC2
+    amazon.aws.ec2:    
+      region: us-east-1
+      key_name: dragon
+      group: homebase
+      instance_type: t2.large
+      iam_instance_profile: arn:aws:iam::674406573293:instance-profile/EC2-Kratos
+      image: ami-069137bd6aaaa65ab #Deep Learning AMI  w Docker
+      wait: yes
+      wait_timeout: 500
+      count: '{{ count }}' #command line arg
+      vpc_subnet_id: subnet-e94854a4
+      assign_public_ip: yes
+      monitoring: no             
+      instance_tags:
+        Name:  '{{ ec2_name }}' #command line arg
+    #variable name to be used as a reference throughout template EIP operations
+
+  - name: Associate new elastic IPs with each of the instances
+    community.aws.ec2_eip:
+      in_vpc: true #must include in_vpc to avoid  Parameter validation failed error 
+      device_id: "{{ item }}"
+    loop: "{{ si3mshady_ec2.instance_ids }}"
+    # https://github.com/ansible-collections/community.aws/issues/374
+
+ 
+
+# ansible-playbook  new_ubuntu_ec2_k3s.yml --extra-vars="count=1 ec2_name=devOpsCICD
+#Elliott Arnold P

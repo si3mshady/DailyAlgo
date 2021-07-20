@@ -1,0 +1,6 @@
+[localhost]
+
+localhost ansible_python_interpreter=python
+
+[sandbox]
+sandbox ansible_host=ec2-3-225-222-165.compute-1.amazonaws.com ansible_user=ubuntu ansible_private_key_file=/Users/si3mshady/dragon.pem

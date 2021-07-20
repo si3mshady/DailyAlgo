@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+
+.header {
+    margin-top: 60px;
+}
+
+.headerTitles {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+   
+}
+
+.headerImage {
+    object-fit: fill;
+    width:100%;
+    margin-top: 42px;
+    /* height: 100%; */
+}
+
+.headerTilesSm {
+    position: absolute;
+    top: 14%;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
+    /* color: powderblue; */
+    color:  rgba(27,139,185,255);
+
+    font-size: 50px;
+}
+
+.headerTilesLg {
+    position: absolute;
+    top: 20%;
+    color: plum;
+    font-size: 100px;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
+}

@@ -22,4 +22,4 @@ COPY --from=buildStep /app/build/ /usr/share/nginx/html
 
 EXPOSE 80
 
-# docker build .  -t si3mshady/blogsite-fe:1
+# docker build .  -t si3mshady/blogsite-fe:1 

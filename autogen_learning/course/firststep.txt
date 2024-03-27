@@ -1,0 +1,32 @@
+
+
+In this guide we show you how to build a "live" RAG pipeline over Google Drive files.
+
+This pipeline will index Google Drive files and dump them to a Redis vector store. Afterwards, every time you rerun the ingestion pipeline, the pipeline will propagate incremental updates, so that only changed documents are updated in the vector store. This means that we don't re-index all the documents!
+
+We use the following data source - you will need to copy these files and upload them to your own Google Drive directory!
+
+NOTE: You will also need to setup a service account and credentials.json. See our LlamaHub page for the Google Drive loader for more details: https://llamahub.ai/l/readers/llama-index-readers-google?from=readers
+
+We install required packages and launch the Redis Docker image.
+
+Here we define the ingestion pipeline. Given a set of documents, we will run sentence splitting/embedding transformations, and then load them into a Redis docstore/vector store.
+
+The vector store is for indexing the data + storing the embeddings, the docstore is for tracking duplicates.
+
+We define our index to wrap the underlying vector store.
+
+Here we load data from our Google Drive Loader on LlamaHub.
+
+The loaded docs are the header sections of our Use Cases from our documentation.
+
+Since this is our first time starting up the vector store, we see that we've transformed/ingested all the documents into it (by chunking, and then by embedding).
+
+Let's try modifying our ingested data!
+
+We modify the "Q&A" doc to include an extra "structured analytics" block of text. See our updated document as a reference.
+
+Now let's rerun the ingestion pipeline.
+
+Notice how only one node is ingested. This is beacuse only one document changed, while the other documents stayed the same. This means that we only need to re-transform and re-embed one document!
+
